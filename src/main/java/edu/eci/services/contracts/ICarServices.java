@@ -10,7 +10,7 @@ import edu.eci.models.User;
 public interface ICarServices {
 	List<Car> list();
     Car create(Car car);
-    Car get(UUID id);
+    Car getByLicence(String licence);
     Car get(String name);
     void delete(Car car);
     void update(Car car);

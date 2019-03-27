@@ -16,13 +16,12 @@ import edu.eci.services.contracts.ICarServices;
 public class CarServices implements ICarServices {
 	
 	 @Autowired
-	 @Qualifier("CarMemoryRepository")
+	 @Qualifier("CarPostgresRepository")
 	 private ICarRepository carRepository;
 
 	@Override
 	public List<Car> list() {
-		// TODO Auto-generated method stub
-		return null;
+		return carRepository.findAll();		
 	}
 
 	@Override
@@ -32,7 +31,7 @@ public class CarServices implements ICarServices {
 	}
 
 	@Override
-	public Car get(UUID id) {
+	public Car getByLicence(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
