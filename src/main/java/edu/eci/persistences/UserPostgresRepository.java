@@ -81,26 +81,51 @@ public class UserPostgresRepository implements IUserRepository {
     	try(Connection connection = db.getDataSource().getConnection()){
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(sentece);
+            
         }catch (Exception e){
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
         }
-        return null;
+    	return entity.getId();
     }
 
     @Override
     public void update(User entity) {
-
+    	String sentece="update users set name='"+entity.getName()+"' where id='"+entity.getId()+"';";
+    	try(Connection connection = db.getDataSource().getConnection()){
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(sentece);
+            
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void delete(User o) {
-
+    	String sentece="delete from users where id='"+o.getId()+"';";
+    	try(Connection connection = db.getDataSource().getConnection()){
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(sentece);
+            
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
-    public void remove(Long id) {
-
+    public void remove(UUID id) {
+    	String sentece="delete from users where id='"+id+"';";
+    	try(Connection connection = db.getDataSource().getConnection()){
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(sentece);
+            
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
     }
 
 

@@ -5,6 +5,7 @@ import static java.util.stream.Collectors.toList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -61,7 +62,7 @@ public class CarMemoryRepository implements ICarRepository{
 	}
 
 	@Override
-	public void remove(Long id) {
+	public void remove(String id) {
 		CarMemoryRepository.carsContainer = CarMemoryRepository.getContainer()
                 .stream()
                 .filter(u -> !u.getLicencePlate().equals(id))

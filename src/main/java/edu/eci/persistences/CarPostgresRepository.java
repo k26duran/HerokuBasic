@@ -65,25 +65,57 @@ public class CarPostgresRepository implements ICarRepository{
 
 	@Override
 	public String save(Car entity) {
-		// TODO Auto-generated method stub
-		return null;
+		String sentece= "INSERT INTO cars VALUES ('"+entity.getBrand()+"','"+entity.getLicencePlate()+"+');";
+    	try(Connection connection = db.getDataSource().getConnection()){
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(sentece);
+            
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    	return entity.getLicencePlate();
 	}
 
 	@Override
 	public void update(Car entity) {
-		// TODO Auto-generated method stub
+		String sentece="update users set brand='"+entity.getBrand()+"' where licence='"+entity.getLicencePlate()+"';";
+    	try(Connection connection = db.getDataSource().getConnection()){
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(sentece);
+            
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
 		
 	}
 
 	@Override
 	public void delete(Car o) {
-		// TODO Auto-generated method stub
+		String sentece="delete from users where licence='"+o.getLicencePlate()+"';";
+    	try(Connection connection = db.getDataSource().getConnection()){
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(sentece);
+            
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
 		
 	}
 
 	@Override
-	public void remove(Long id) {
-		// TODO Auto-generated method stub
+	public void remove(String id) {
+		String sentece="delete from users where licence='"+id+"';";
+    	try(Connection connection = db.getDataSource().getConnection()){
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(sentece);
+            
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
 		
 	}
 

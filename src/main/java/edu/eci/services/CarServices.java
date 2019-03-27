@@ -26,32 +26,34 @@ public class CarServices implements ICarServices {
 
 	@Override
 	public Car create(Car car) {
-		// TODO Auto-generated method stub
-		return null;
+		if(null == car.getLicencePlate())
+            throw new RuntimeException("Id invalid");
+        else if(carRepository.find(car.getLicencePlate()) != null)
+            throw new RuntimeException("The car exists");
+        else
+            carRepository.save(car);
+        return car;
 	}
 
 	@Override
 	public Car getByLicence(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return carRepository.find(id);
 	}
 
 	@Override
 	public Car get(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return carRepository.find(name);
 	}
 
 	@Override
 	public void delete(Car car) {
-		// TODO Auto-generated method stub
+		carRepository.delete(car);
 		
 	}
 
 	@Override
 	public void update(Car car) {
-		// TODO Auto-generated method stub
-		
+		carRepository.update(car);
 	}
 
 }

@@ -52,9 +52,9 @@ public class CarController {
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.DELETE, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> deleteCar(@RequestBody UUID id){
+    public ResponseEntity<?> deleteCar(@RequestBody String id){
     	try {
-         	//SE DEBE COLOCAR EL METODO CORRESPONDIENTE A ELIMINAR POR UN CARRO EN ESPECIFICO
+         	carService.delete(carService.get(id));
  	        return new ResponseEntity<>("Se ha eliminado correctamente",HttpStatus.ACCEPTED);
          }catch(Exception e) {
          	return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
