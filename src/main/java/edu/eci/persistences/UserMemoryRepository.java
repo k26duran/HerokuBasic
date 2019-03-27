@@ -75,4 +75,5 @@ public class UserMemoryRepository implements IUserRepository{
                 .filter(u -> !u.getId().equals(id))
                 .collect(toList());
     }
+
 }

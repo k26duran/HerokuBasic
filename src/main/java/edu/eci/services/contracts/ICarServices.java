@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import edu.eci.models.Car;
+import edu.eci.models.User;
 
 
 public interface ICarServices {
@@ -11,5 +12,7 @@ public interface ICarServices {
     Car create(Car car);
     Car get(UUID id);
     Car get(String name);
+    void delete(Car car);
+    void update(Car car);
 
 }
