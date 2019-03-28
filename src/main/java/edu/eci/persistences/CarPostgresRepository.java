@@ -65,7 +65,7 @@ public class CarPostgresRepository implements ICarRepository{
 
 	@Override
 	public String save(Car entity) {
-		String sentece= "INSERT INTO cars VALUES ('"+entity.getBrand()+"','"+entity.getLicencePlate()+"+');";
+		String sentece= "INSERT INTO cars VALUES ('"+entity.getBrand()+"','"+entity.getLicencePlate()+"');";
     	try(Connection connection = db.getDataSource().getConnection()){
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(sentece);
@@ -79,7 +79,7 @@ public class CarPostgresRepository implements ICarRepository{
 
 	@Override
 	public void update(Car entity) {
-		String sentece="update users set brand='"+entity.getBrand()+"' where licence='"+entity.getLicencePlate()+"';";
+		String sentece="update cars set brand='"+entity.getBrand()+"' where licence='"+entity.getLicencePlate()+"';";
     	try(Connection connection = db.getDataSource().getConnection()){
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(sentece);
@@ -93,7 +93,7 @@ public class CarPostgresRepository implements ICarRepository{
 
 	@Override
 	public void delete(Car o) {
-		String sentece="delete from users where licence='"+o.getLicencePlate()+"';";
+		String sentece="delete from cars where licence='"+o.getLicencePlate()+"';";
     	try(Connection connection = db.getDataSource().getConnection()){
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(sentece);
@@ -107,7 +107,7 @@ public class CarPostgresRepository implements ICarRepository{
 
 	@Override
 	public void remove(String id) {
-		String sentece="delete from users where licence='"+id+"';";
+		String sentece="delete from cars where licence='"+id+"';";
     	try(Connection connection = db.getDataSource().getConnection()){
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(sentece);

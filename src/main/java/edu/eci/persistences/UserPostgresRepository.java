@@ -77,7 +77,7 @@ public class UserPostgresRepository implements IUserRepository {
 
     @Override
     public UUID save(User entity) {
-    	String sentece= "INSERT INTO users VALUES ('"+entity.getId()+"','"+entity.getName()+"+');";
+    	String sentece= "INSERT INTO users VALUES ('"+entity.getId()+"','"+entity.getName()+"');";
     	try(Connection connection = db.getDataSource().getConnection()){
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(sentece);

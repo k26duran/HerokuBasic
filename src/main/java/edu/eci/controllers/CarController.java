@@ -54,6 +54,7 @@ public class CarController {
     @RequestMapping(method = RequestMethod.DELETE, consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> deleteCar(@RequestBody String id){
     	try {
+    		
          	carService.delete(carService.get(id));
  	        return new ResponseEntity<>("Se ha eliminado correctamente",HttpStatus.ACCEPTED);
          }catch(Exception e) {
