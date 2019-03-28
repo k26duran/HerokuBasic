@@ -62,23 +62,53 @@ The Procfile model of running processes types is extremely flexible. You can run
 
 ## Deploy the app
 
+We initialize the local repository
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/3.PNG "inicializar repositorio de forma local")
+
+The heroku create CLI command creates a new empty application on Heroku, along with an associated empty Git repository. If you run this command from your app’s root directory, the empty Heroku Git repository is automatically set as a remote for your local repository.
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/4.PNG "heroku create")
+
+Add the app on the repository
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/5.PNG "git add .")
+
+Commit
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/6.PNG "git commit")
+
+To deploy the app to Heroku
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/7.PNG "git push heroku master")
+
+Push
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/7.1.PNG "part of git push")
+
+Running heroku ps:scale web=1 will scale your app to one running dyno, basically meaning you have one server running your app currently.
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/8.PNG "heroku ps:scale")
+
+To open the app.
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/9.PNG "heroku open")
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/9.1.PNG "part of heroku open")
 
 ## View Logs
+
+It serves to obtain the most recent records of your application, and you can follow the records using --tail (or -t).
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/10.PNG "view logs")
 
 ## Use a Database
 
+Add-ons are cloud services that extend Heroku apps with useful features and services, such as:
+	* Data stores
+	* Logging
+	* Monitoring
+	* Content management
+An add-on interacts with a Heroku app in one or more of the following ways:
+	* It sets one or more config vars in the app with values necessary to communicate with the add-on. These values typically include the cloud service’s URL and any credentials necessary to access that URL.
+	* It reads or writes to the app’s logs.
+	* It uses the Heroku Platform API for Partners to perform app management actions (such as dyno scaling) on behalf of the app’s developer.
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/11.PNG "heroku addons")
+
+Config heroku
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/12.PNG "heroku config")
+
+Show some information about database.
 ![alt text](https://github.com/k26duran/HerokuBasic/blob/master/img/13.PNG "heroku pg")
 
 
