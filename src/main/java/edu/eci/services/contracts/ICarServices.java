@@ -12,7 +12,7 @@ public interface ICarServices {
     Car create(Car car);
     Car getByLicence(String licence);
     Car get(String name);
-    void delete(Car car);
+    void delete(String car);
     void update(Car car);
 
 }

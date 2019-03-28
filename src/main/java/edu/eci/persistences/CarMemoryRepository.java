@@ -54,10 +54,10 @@ public class CarMemoryRepository implements ICarRepository{
 	}
 
 	@Override
-	public void delete(Car o) {
+	public void delete(String o) {
 		CarMemoryRepository.carsContainer = CarMemoryRepository.getContainer()
                 .stream()
-                .filter(u -> !u.getLicencePlate().equals(o.getLicencePlate()))
+                .filter(u -> !u.getLicencePlate().equals(o))
                 .collect(toList());
 	}
 

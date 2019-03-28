@@ -103,8 +103,8 @@ public class UserPostgresRepository implements IUserRepository {
     }
 
     @Override
-    public void delete(User o) {
-    	String sentece="delete from users where id='"+o.getId()+"';";
+    public void delete(UUID o) {
+    	String sentece="delete from users where id='"+o+"';";
     	try(Connection connection = db.getDataSource().getConnection()){
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(sentece);

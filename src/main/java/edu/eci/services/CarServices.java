@@ -46,7 +46,7 @@ public class CarServices implements ICarServices {
 	}
 
 	@Override
-	public void delete(Car car) {
+	public void delete(String car) {
 		carRepository.delete(car);
 		
 	}

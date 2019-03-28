@@ -55,7 +55,7 @@ public class CarController {
     public ResponseEntity<?> deleteCar(@RequestBody String id){
     	try {
     		
-         	carService.delete(carService.get(id));
+         	carService.delete(id);
  	        return new ResponseEntity<>("Se ha eliminado correctamente",HttpStatus.ACCEPTED);
          }catch(Exception e) {
          	return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);

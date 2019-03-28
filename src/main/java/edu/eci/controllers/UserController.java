@@ -51,10 +51,10 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.DELETE, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> deleteUser(@RequestBody UUID id){
+    public ResponseEntity<?> deleteUser(@RequestBody String id){
     	 try {
     		System.out.println(id+"AQUI ESTOY");
-         	userServices.delete(userServices.get(id));
+         	userServices.delete(UUID.fromString(id));
  	        return new ResponseEntity<>("Se ha eliminado correctamente",HttpStatus.ACCEPTED);
          }catch(Exception e) {
          	return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);

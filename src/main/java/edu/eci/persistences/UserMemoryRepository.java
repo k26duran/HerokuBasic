@@ -61,10 +61,10 @@ public class UserMemoryRepository implements IUserRepository{
     }
 
     @Override
-    public void delete(User o) {
+    public void delete(UUID o) {
         UserMemoryRepository.usersContainer = UserMemoryRepository.getContainer()
                 .stream()
-                .filter(u -> !u.getId().equals(o.getId()))
+                .filter(u -> !u.getId().equals(o))
                 .collect(toList());
     }
 

@@ -92,8 +92,8 @@ public class CarPostgresRepository implements ICarRepository{
 	}
 
 	@Override
-	public void delete(Car o) {
-		String sentece="delete from cars where licence='"+o.getLicencePlate()+"';";
+	public void delete(String o) {
+		String sentece="delete from cars where licence='"+o+"';";
     	try(Connection connection = db.getDataSource().getConnection()){
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(sentece);
